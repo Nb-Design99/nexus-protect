@@ -415,7 +415,7 @@ a.card-wrap:hover { text-decoration: none; }
 .terminal-bar span:nth-child(1) { background: #f43f5e; }
 .terminal-bar span:nth-child(2) { background: #fbbf24; }
 .terminal-bar span:nth-child(3) { background: #22c55e; }
-.terminal-body { padding: 22px 24px; line-height: 2.05; color: var(--muted); }
+.terminal-body { padding: 22px 24px; line-height: 2.05; color: #9aa4bf; }
 .terminal-body .t-prompt { color: var(--accent); }
 .terminal-body .t-ok { color: #22c55e; }
 .terminal-body .t-key { color: #7dd3fc; }
@@ -587,3 +587,80 @@ footer {
   .hero { padding: 64px 0 56px; }
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   MODE CLAIR — activé via <html data-theme="light">
+   Les couleurs d'accent (par thème) restent identiques ;
+   seuls les tons neutres (fond, cartes, texte) changent.
+   ============================================================ */
+html[data-theme="light"] {
+  --bg: #f5f7fb;
+  --bg-2: #eceff7;
+  --card: #ffffff;
+  --card-border: rgba(15, 23, 42, 0.10);
+  --text: #101728;
+  --muted: #55607a;
+}
+
+html[data-theme="light"] header {
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .emergency-bar {
+  background: #fff1f2;
+  border-bottom-color: rgba(190, 18, 60, 0.18);
+  color: #be123c;
+}
+html[data-theme="light"] .emergency-bar strong,
+html[data-theme="light"] .emergency-bar a { color: #9f1239; }
+
+html[data-theme="light"] .bg-grid {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+}
+
+html[data-theme="light"] .bg-glow {
+  background:
+    radial-gradient(600px 400px at 15% -5%, var(--accent-soft), transparent 70%),
+    radial-gradient(700px 500px at 90% 10%, rgba(99, 102, 241, 0.1), transparent 70%);
+}
+
+html[data-theme="light"] nav.main-nav a:hover { background: rgba(15, 23, 42, 0.06); }
+html[data-theme="light"] .btn-ghost { background: rgba(15, 23, 42, 0.04); }
+html[data-theme="light"] .btn-ghost:hover { background: rgba(15, 23, 42, 0.08); }
+html[data-theme="light"] .card { box-shadow: 0 10px 30px -20px rgba(15, 23, 42, 0.25); }
+html[data-theme="light"] .card:hover {
+  box-shadow: 0 18px 42px -18px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+@media (max-width: 720px) {
+  html[data-theme="light"] nav.main-nav {
+    background: #ffffff;
+    box-shadow: 0 24px 40px -12px rgba(15, 23, 42, 0.18);
+  }
+}
+
+/* ---------- Bouton bascule clair / sombre ---------- */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: var(--font-title);
+  cursor: pointer;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s, background 0.2s;
+}
+.theme-toggle:hover { transform: scale(1.04); }

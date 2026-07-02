@@ -1,5 +1,27 @@
 // NEXUS PROTECT · interactions communes
 
+// Bascule du fond clair / sombre (mémorisé dans le navigateur)
+const themeToggle = document.querySelector(".theme-toggle");
+function refreshThemeLabel() {
+  if (!themeToggle) return;
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
+  themeToggle.textContent = isLight ? "☾ Sombre" : "☀ Clair";
+}
+refreshThemeLabel();
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("nexus-theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("nexus-theme", "light"); } catch (e) {}
+    }
+    refreshThemeLabel();
+  });
+}
+
 // Menu mobile
 const burger = document.querySelector(".burger");
 const nav = document.querySelector("nav.main-nav");
