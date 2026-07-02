@@ -1,4 +1,4 @@
-// NEXUS PROTECT — interactions communes
+// NEXUS PROTECT · interactions communes
 
 // Menu mobile
 const burger = document.querySelector(".burger");
@@ -34,7 +34,7 @@ if (quickExit) {
   });
 }
 
-// Formulaire de contact — démo : l'envoi réel sera branché plus tard.
+// Formulaire de contact (démo) : l'envoi réel sera branché plus tard.
 const form = document.querySelector("form.contact-form");
 if (form) {
   form.addEventListener("submit", (e) => {
@@ -43,7 +43,7 @@ if (form) {
     if (status) {
       status.style.display = "block";
       status.textContent =
-        "Merci pour votre message. Le formulaire sera activé très prochainement — en attendant, écrivez-nous directement par e-mail.";
+        "Merci pour votre message. Le formulaire sera activé très prochainement, en attendant, écrivez-nous directement par e-mail.";
     }
     form.reset();
   });
